@@ -1,0 +1,31 @@
+application: logi-app-715
+version: 1
+runtime: go
+api_version: go1
+automatic_scaling:
+  max_concurrent_requests: 100
+
+handlers:
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+  mime_type: "text/html"
+
+- url: /components/(.*)
+  static_files: static/components/\1
+  upload: static/components/(.*)
+  mime_type: charset=UTF-8;
+
+- url: /api/.*
+  script: _go_app
+  login: required
+
+- url: /admin/.*
+  static_dir: static/admin
+  login: admin
+  mime_type: "text/html"
+
+
+# anything else just pass it to the app to work out
+- url: /.*
+  script: _go_app
