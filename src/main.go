@@ -28,6 +28,6 @@ func init() {
 }
 
 func handle(c appengine.Context, w http.ResponseWriter, r *http.Request) error {
-	w.Write([]byte(r.URL.Path))
+	w.Write([]byte(r.URL.String() + ":D"))
 	return nil
 }

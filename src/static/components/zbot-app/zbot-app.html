@@ -1,0 +1,32 @@
+<link src="../polymer/polymer.html">
+<link rel="import" href="zbot-toolbar.html">
+<link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="./pages/home-page.html">
+<link rel="import" href="./pages/about-page.html">
+<link rel="import" href="../core-media-query/core-media-query.html">
+<polymer-element name="zbot-app">
+    <template>
+        <style>
+        core-pages {
+            height: 100%;
+            margin: 10px
+        }
+        </style>
+        <zbot-toolbar selected="{{selected}}" isPhone="{{phoneScreen}}"></zbot-toolbar>
+        <div horizontal layout>
+        <div flex></div>
+         <core-pages selected="{{selected}}" flex three>
+            <x-home-page></x-home-page>
+            <x-about-page></x-about-page>
+        </core-pages>       
+        <div flex></div>
+        </div>
+        
+        <core-media-query query="max-width: 640px" queryMatches='{{phoneScreen}}'></core-media-query>
+    </template>
+    <script>
+    Polymer({
+        selected : "0"
+    })
+    </script>
+</polymer-element>
