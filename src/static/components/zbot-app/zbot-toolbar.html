@@ -45,21 +45,27 @@
           color: #00bcd4;
         }
         </style>
-        <core-toolbar class="medium-tall">
+        <core-toolbar class='{{!isPhone ? "medium-tall" : ""}}'>
+            
             <template if="{{!isPhone}}">
                 <div flex></div>
-            </template>
-            <div flex three>Arma Zbot</div>
-            <template if="{{!isPhone}}">
+                <div>Arma Zbot</div> 
+                <span flex three></span>
                 <div flex></div>
             </template>
-            <div class="bottom fit" horizontal layout>
+            <div class='{{!isPhone ? "bottom fit" : ""}}' horizontal layout>
+                
                 <template if="{{!isPhone}}">
                     <div flex></div>
                 </template>
-                <div flex three>
+                    <template if="{{isPhone}}">
+                        Arma Zbot
+                        <span flex></span>
+                    </template>
+                <div {{!isPhone ? flex three : }}>
                     <paper-tabs selected="{{selected}}" flex style="max-width:400px" noink >
                         <paper-tab>Home</paper-tab>
+                        <paper-tab>Todo</paper-tab>
                         <paper-tab>About</paper-tab>
 
                     </paper-tabs>           
@@ -67,12 +73,14 @@
                 <template if="{{!isPhone}}">
                     <div flex></div>
                 </template>
+                
             </div>
         </core-toolbar>
     </template>
     <script>
     Polymer('zbot-toolbar',{
         selected : "0",
+        title : "Arma Zbot"
     })
     </script>
 </polymer-element>

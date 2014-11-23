@@ -1,32 +1,59 @@
 <link src="../polymer/polymer.html">
 <link rel="import" href="zbot-toolbar.html">
 <link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../core-animated-pages/core-animated-pages.html">
 <link rel="import" href="./pages/home-page.html">
+<link rel="import" href="./pages/todo-page.html">
 <link rel="import" href="./pages/about-page.html">
 <link rel="import" href="../core-media-query/core-media-query.html">
-<polymer-element name="zbot-app">
+<link rel="import" href="../paper-shadow/paper-shadow.html">
+
+<polymer-element name="zbot-app" layout vertical flex fit>
     <template>
+        
         <style>
-        core-pages {
-            height: 100%;
-            margin: 10px
-        }
+            core-animated-pages {
+                height: 100%;
+                margin: 5px;
+            }
+            
+            paper-shadow {
+                background-color: #efefef;
+                height: auto;
+                margin 10px;
+            }
         </style>
-        <zbot-toolbar selected="{{selected}}" isPhone="{{phoneScreen}}"></zbot-toolbar>
-        <div horizontal layout>
-        <div flex></div>
-         <core-pages selected="{{selected}}" flex three>
-            <x-home-page></x-home-page>
-            <x-about-page></x-about-page>
-        </core-pages>       
-        <div flex></div>
-        </div>
         
         <core-media-query query="max-width: 640px" queryMatches='{{phoneScreen}}'></core-media-query>
+        <zbot-toolbar selected="{{selected}}" isPhone="{{phoneScreen}}"></zbot-toolbar>
+        
+        <div horizontal layout flex>
+            <template if="{{!phoneScreen}}">
+                <div flex></div>
+            </template>
+                <paper-shadow z="2" layout vertical flex three style="margin:10px 0px 10px 0;">
+                    <core-animated-pages selected="{{selected}}" transitions="cross-fade" flex>
+                         <section>
+                            <x-home-page cross-fade></x-home-page>
+                         </section>
+                         <section>
+                            <x-todo-page cross-fade></x-todo-page>
+                         </section>
+                         <section>
+                            <x-about-page cross-fade></x-about-page>
+                         </section>
+                    </core-animated-pages>
+                </paper-shadow>
+            <template if="{{!phoneScreen}}">
+                <div flex></div>
+            </template>
+        </div>
+        
     </template>
     <script>
     Polymer({
         selected : "0"
     })
+    
     </script>
 </polymer-element>
