@@ -31,19 +31,22 @@
             <template if="{{!phoneScreen}}">
                 <div flex></div>
             </template>
-                <paper-shadow z="2" layout vertical flex three style="margin:10px 0px 10px 0;">
-                    <core-animated-pages selected="{{selected}}" transitions="cross-fade" flex>
+                <paper-shadow z="2" layout vertical style="margin:10px 0px 10px 0;" flex three>
+                    <core-animated-pages selected="{{selected}}" transitions="cross-fade">
                          <section>
-                            <x-home-page cross-fade></x-home-page>
+                             <!--<paper-shadow z="2" layout vertical fit style="margin:10px 0px 10px 0;" cross-fade>-->
+                                <x-home-page cross-fade style="margin:16px;"></x-home-page>
+                             <!--</paper-shadow>-->
                          </section>
                          <section>
-                            <x-todo-page cross-fade></x-todo-page>
+                                <x-todo-page cross-fade style="margin:16px;"></x-todo-page>
                          </section>
                          <section>
-                            <x-about-page cross-fade></x-about-page>
+                                <x-about-page cross-fade style="margin:16px;"></x-about-page>
                          </section>
-                    </core-animated-pages>
-                </paper-shadow>
+                        </core-animated-pages>
+            </paper-shadow>
+                
             <template if="{{!phoneScreen}}">
                 <div flex></div>
             </template>

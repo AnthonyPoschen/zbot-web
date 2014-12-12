@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  
+  <script src="../platform/platform.js"></script>
+
+  <style>
+    body {
+      font-size: 16px;
+      font-family: "RobotoDraft", sans-serif;
+      font-weight: 300;
+      line-height: 24px;
+    }
+    card {
+      border: 1px solid silver;
+      display: block;
+      width: 700px;
+    }
+  </style>
+  
+  <link rel="import" href="components/font-roboto/roboto.html">
+  <link rel="import" href="component-download-button.html">
+  
+</head>
+<body unresolved touch-action="none">
+
+  <br>
+  
+  <component-download-button component="core-ajax"></component-download-button>
+  
+  <br><br>
+  
+  <component-download-button org="PolymerLabs" component="google-map" label="Download google-map">
+  </component-download-button>
+
+  <br><hr><br>
+  
+  <h3>core-component-download-view</h3>
+    
+  <card>
+    <component-download-view component="core-ajax"></component-download-view>
+  </card>
+  
+</body>
+</html>

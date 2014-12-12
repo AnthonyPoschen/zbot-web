@@ -1,0 +1,26 @@
+{
+  "name": "component-download-button",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-icon": "Polymer/core-icon#master",
+    "core-icons": "Polymer/core-icons#master",
+    "core-overlay": "Polymer/core-overlay#master",
+    "core-selector": "Polymer/core-selector#master",
+    "core-transition": "Polymer/core-transition",
+    "paper-button": "Polymer/paper-button#master",
+    "paper-shadow": "Polymer/paper-shadow#master",
+    "paper-tabs": "Polymer/paper-tabs#master"
+  },
+  "homepage": "https://github.com/Polymer/component-download-button",
+  "_release": "d957e3302a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d957e3302a5e615142c4b44293472968dcc2e33a"
+  },
+  "_source": "git://github.com/Polymer/component-download-button.git",
+  "_target": "*",
+  "_originalSource": "Polymer/component-download-button",
+  "_direct": true
+}

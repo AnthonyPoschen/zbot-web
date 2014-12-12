@@ -1,0 +1,142 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../core-overlay/core-overlay.html">
+<link rel="import" href="../core-transition/core-transition-css.html">
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-shadow/paper-shadow.html">
+<link rel="import" href="component-download-view.html">
+
+<!--
+The `component-download-button` element presents a tabbed UI in an overlay 
+when tapped, providing instructions for downloaing a Web Component.  
+
+The UI provides instructions for downloading via a ZIP file (via the 
+<em>bowerarchiver.appspot.com</em> web service), Bower, and Github. 
+The component remembers the tab the user last selected (via a global localStorage 
+property) so as to present the user's preferred download method on subsequent
+uses of any instance of this component.
+
+If the component is not hosted under the `Polymer` github org, specify
+a different org using the `org` attribute.
+
+Example:
+
+    <component-download-button component="core-ajax"></component-download-button>
+
+    <component-download-button org="PolymerLabs" component="google-map">
+    </component-download-button>
+ 
+@element component-download-button
+@status beta
+@homepage github.io
+-->
+<polymer-element name="component-download-button" attributes="label open component org">
+
+<template>
+
+  <style>
+
+    :host {
+      padding: 10px;
+    }
+
+    #overlay {
+      padding: 0 10px 10px 10px;
+    }
+
+    .card {
+      border-radius: 2px;
+      width: 700px;
+      height: 380px;
+      background-color: white;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    .close {
+      background: #bbb;
+    }
+
+    .paper-shadow {
+      pointer-events: none;
+    }
+
+    .label {
+      vertical-align: middle;
+    }
+
+    core-toolbar > div[flex] {
+      margin-left: 16px;
+    }
+  </style>
+
+  <paper-button raised on-tap="{{toggle}}">
+    <core-icon icon="file-download"></core-icon>
+    <span class="label">{{label}}</span>
+  </paper-button>
+  <core-overlay id="overlay" backdrop transition="core-transition-center" opened="{{open}}">
+    <div class="card" layout vertical>
+      <core-toolbar>
+        <div flex>Download</div>
+        <core-icon-button icon="close" on-tap="{{toggle}}"></core-icon-button>
+      </core-toolbar>
+      <paper-shadow z="2"></paper-shadow>
+      <component-download-view flex org="{{org}}" component="{{component}}"></component-download-view>
+    </div>
+  </core-overlay>
+
+</template>
+
+<script>
+
+  Polymer({
+
+    /**
+     * Reflects whether the overlay is open or not.  Set to `true` to manually open.
+     * @attribute open
+     * @default false
+     * @type Boolean
+     */
+    open: false,
+
+    /**
+     * The name of the component in Github/Bower (required).
+     * @attribute component
+     * @type String
+     */
+    component: null,
+
+    /**
+     * Optional: Label for the button (defaults to 'Get the Source').
+     * @attribute label
+     * @default 'Get the Source'
+     * @type String
+     */
+    label: "Get the Source",
+
+    /**
+     * Optional: Github org (defaults to 'Polymer').
+     * @attribute org
+     * @default 'Get the Source'
+     * @type String
+     */
+    org: "Polymer",
+
+    toggle: function() {
+      this.open = !this.open;
+    }
+
+  });
+
+</script>
+</polymer-element>

@@ -1,12 +1,53 @@
 <link rel="import" href="../../polymer/polymer.html">
-
+<link rel="import" href="../../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../paper-shadow/paper-shadow.html">
 <polymer-element name="x-home-page" attributes="isPhone" flex>
     <template>
         <style>
-        
+        .button {
+            margin: 10px;
+        }
         </style>
         <div>
-            Home
+           <p>
+                Zbot is a Automated BEC log parser to ban hackers in Arma.
+                Currently designed for specilised use on Arma3 Altis Life server results may vary. <br>
+            </p>
+            <h2>Features:</h2>
+            <ul>
+                <li>Multi Broadcast to multiple Rcons. usefull for multi server communities.</li>
+                <li>Duplicate Perm bans removed</li>
+                <li>Logging of every action and reason</li>
+                <li>Parsing of Bec files to find hackers to save time and effort of admins.</li>
+                <li>Ban sharing between communities (coming soon)</li>
+            </ul>
+            <div horizontal layout>
+                <div flex two></div>
+                <a href="/download/arma-zbot.zip" download>
+                    <paper-shadow horizontal layout center>
+                        <div class="button">
+                        <p>Download zbot | 32bit Windows</p>
+                        </div>
+                    </paper-shadow>
+                </a>
+                <div flex></div>
+                <a href="https://github.com/zanven42/arma-zbot">
+                    <paper-shadow horizontal layout center>
+                        <div class="button">
+                        <p>View Source on Github</p>
+                        </div>
+                    </paper-shadow>               
+                </a>
+
+                <div flex two></div>
+            </div>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" >
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="PVVX84959NXMA">
+                <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
         </div>
     </template>
     <script>

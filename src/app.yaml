@@ -25,6 +25,10 @@ handlers:
   login: admin
   mime_type: "text/html"
 
+- url: /download/arma-zbot.zip
+  static_files: download/arma-zbot.zip
+  upload: download/arma-zbot.zip
+  mime_type: "application/zip"
 
 # anything else just pass it to the app to work out
 - url: /.*

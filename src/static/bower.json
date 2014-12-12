@@ -15,6 +15,8 @@
     "paper-tabs": "Polymer/paper-tabs#~0.5.1",
     "core-media-query": "Polymer/core-media-query#~0.5.1",
     "polymer": "Polymer/polymer#~0.5.1",
-    "paper-shadow": "Polymer/paper-shadow#~0.5.1"
+    "paper-shadow": "Polymer/paper-shadow#~0.5.1",
+    "core-list": "polymer/core-list#~0.5.1",
+    "component-download-button": "Polymer/component-download-button"
   }
 }

@@ -49,7 +49,7 @@
             
             <template if="{{!isPhone}}">
                 <div flex></div>
-                <div>Arma Zbot</div> 
+                <div><h1> Arma Zbot</h1></div> 
                 <span flex three></span>
                 <div flex></div>
             </template>
@@ -59,11 +59,11 @@
                     <div flex></div>
                 </template>
                     <template if="{{isPhone}}">
-                        Arma Zbot
+                        <h2>Arma Zbot</h2>
                         <span flex></span>
                     </template>
                 <div {{!isPhone ? flex three : }}>
-                    <paper-tabs selected="{{selected}}" flex style="max-width:400px" noink >
+                    <paper-tabs selected="{{selected}}" style="max-width:400px" noink >
                         <paper-tab>Home</paper-tab>
                         <paper-tab>Todo</paper-tab>
                         <paper-tab>About</paper-tab>
